@@ -219,38 +219,43 @@ function Home() {
           ham ? "translate-x-0" : "translate-x-full"
         }`}
       >
+        {/* Cross Button */}
         <RxCrossCircled
           className="absolute text-white top-5 right-5 w-7 h-7 cursor-pointer"
           onClick={() => setHam(false)}
         />
-        <button
-          className="w-full h-[45px] bg-white rounded-full text-black font-semibold text-base"
-          onClick={handleLogOut}
-        >
-          Log Out
-        </button>
-        <button
-          className="w-full h-[45px] bg-white rounded-full text-black font-semibold text-base"
-          onClick={() => navigate("/customize")}
-        >
-          Customize Assistant
-        </button>
 
-        <div className="w-full h-[1px] bg-gray-500 my-2"></div>
-        <h1 className="text-white font-semibold text-base">History</h1>
-        <div className="flex flex-col gap-2 max-h-[60vh] overflow-y-auto pr-2">
-          {userData?.history && userData.history.length > 0 ? (
-            userData.history.map((his, index) => (
-              <span
-                key={index}
-                className="text-gray-300 text-sm border-b border-gray-600 pb-1"
-              >
-                {his}
-              </span>
-            ))
-          ) : (
-            <span className="text-gray-400 text-sm">No history yet</span>
-          )}
+        <div className="mt-12 flex flex-col gap-4">
+          <button
+            className="w-full h-[45px] bg-white rounded-full text-black font-semibold text-base"
+            onClick={handleLogOut}
+          >
+            Log Out
+          </button>
+          <button
+            className="w-full h-[45px] bg-white rounded-full text-black font-semibold text-base"
+            onClick={() => navigate("/customize")}
+          >
+            Customize Assistant
+          </button>
+
+          <div className="w-full h-[1px] bg-gray-500 my-2"></div>
+          <h1 className="text-white font-semibold text-base">History</h1>
+          <div className="flex flex-col gap-2 max-h-[60vh] overflow-y-auto pr-2">
+            {userData?.history && userData.history.length > 0 ? (
+              userData.history.map((his, index) => (
+                <span
+                  key={index}
+                  className="text-gray-300 text-sm border-b border-gray-600 pb-1 cursor-pointer"
+                  onClick={() => setHam(false)} // auto-close sidebar when clicked
+                >
+                  {his}
+                </span>
+              ))
+            ) : (
+              <span className="text-gray-400 text-sm">No history yet</span>
+            )}
+          </div>
         </div>
       </div>
 
@@ -291,3 +296,4 @@ function Home() {
 }
 
 export default Home;
+
