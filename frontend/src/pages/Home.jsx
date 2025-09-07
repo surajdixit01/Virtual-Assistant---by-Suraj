@@ -225,7 +225,7 @@ function Home() {
           onClick={() => setHam(false)}
         />
 
-        <div className="mt-12 flex flex-col gap-4">
+        <div className="mt-20 flex flex-col gap-4">
           <button
             className="w-full h-[45px] bg-white rounded-full text-black font-semibold text-base"
             onClick={handleLogOut}
