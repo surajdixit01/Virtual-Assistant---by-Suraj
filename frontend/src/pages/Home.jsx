@@ -206,7 +206,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="w-full h-screen bg-gradient-to-t from-black to-[#030353] flex justify-center items-center flex-col gap-4 overflow-hidden relative">
+    <div className="min-h-screen w-full bg-gradient-to-t from-black to-[#030353] flex justify-center items-center flex-col gap-4 overflow-hidden relative">
       {/* Mobile Hamburger */}
       <TfiMenuAlt
         className="lg:hidden absolute text-white top-5 right-5 w-7 h-7 cursor-pointer"
@@ -224,21 +224,21 @@ function Home() {
           onClick={() => setHam(false)}
         />
         <button
-          className="w-full h-[50px] bg-white rounded-full text-black font-semibold text-lg"
+          className="w-full h-[45px] bg-white rounded-full text-black font-semibold text-base"
           onClick={handleLogOut}
         >
           Log Out
         </button>
         <button
-          className="w-full h-[50px] bg-white rounded-full text-black font-semibold text-lg"
+          className="w-full h-[45px] bg-white rounded-full text-black font-semibold text-base"
           onClick={() => navigate("/customize")}
         >
-          Customize Your Assistant
+          Customize Assistant
         </button>
 
-        <div className="w-full h-[1px] bg-gray-500 my-3"></div>
-        <h1 className="text-white font-semibold text-lg">History</h1>
-        <div className="flex flex-col gap-2 h-[300px] overflow-y-auto pr-2">
+        <div className="w-full h-[1px] bg-gray-500 my-2"></div>
+        <h1 className="text-white font-semibold text-base">History</h1>
+        <div className="flex flex-col gap-2 max-h-[60vh] overflow-y-auto pr-2">
           {userData?.history && userData.history.length > 0 ? (
             userData.history.map((his, index) => (
               <span
@@ -256,34 +256,34 @@ function Home() {
 
       {/* Desktop Buttons */}
       <button
-        className="hidden lg:block absolute top-5 right-5 min-w-[150px] h-[50px] bg-white rounded-full text-black font-semibold text-lg"
+        className="hidden lg:block absolute top-5 right-5 min-w-[150px] h-[45px] bg-white rounded-full text-black font-semibold text-base"
         onClick={handleLogOut}
       >
         Log Out
       </button>
       <button
-        className="hidden lg:block absolute top-[70px] right-5 min-w-[150px] h-[50px] bg-white rounded-full text-black font-semibold text-lg"
+        className="hidden lg:block absolute top-[70px] right-5 min-w-[150px] h-[45px] bg-white rounded-full text-black font-semibold text-base"
         onClick={() => navigate("/customize")}
       >
         Customize
       </button>
 
       {/* Assistant UI */}
-      <div className="w-[250px] h-[300px] flex justify-center items-center overflow-hidden rounded-2xl shadow-lg">
+      <div className="w-[220px] h-[280px] flex justify-center items-center overflow-hidden rounded-2xl shadow-lg">
         <img
           src={userData?.assistantImage}
           alt="assistant"
           className="h-full object-cover"
         />
       </div>
-      <h1 className="text-white text-base font-semibold">
+      <h1 className="text-white text-base font-semibold text-center">
         I am {userData?.assistantName}
       </h1>
 
-      {!aiText && <img src={userImg} className="w-[150px]" />}
-      {aiText && <img src={aiImg} className="w-[150px]" />}
+      {!aiText && <img src={userImg} className="w-[130px]" />}
+      {aiText && <img src={aiImg} className="w-[130px]" />}
 
-      <h1 className="text-white text-sm font-medium text-center px-3">
+      <h1 className="text-white text-sm font-medium text-center px-3 break-words max-w-[90vw]">
         {userText ? userText : aiText ? aiText : null}
       </h1>
     </div>
@@ -291,4 +291,3 @@ function Home() {
 }
 
 export default Home;
-
