@@ -8,7 +8,7 @@ import image5 from "../assets/image5.png"
 import image6 from "../assets/image6.png"
 import image7 from "../assets/image3.png"
 import { RiImageAddLine } from "react-icons/ri";
-import { userDataContext } from '../context/userContext'
+import { userDataContext } from '../context/UserContext'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { MdArrowBack } from "react-icons/md";
 
